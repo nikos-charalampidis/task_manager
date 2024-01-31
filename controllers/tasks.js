@@ -1,15 +1,22 @@
 const Task = require('../models/Task')
 const asyncWrapper = require('../middleware/async')
 const { createCustomError } = require('../errors/custom-error')
+
+// method to return all tasks
+
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({})
   res.status(200).json({ tasks })
 })
 
+// method to create a new task
+
 const createTask = asyncWrapper(async (req, res) => {
   const task = await Task.create(req.body)
   res.status(201).json({ task })
 })
+
+// method to return a single task
 
 const getTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
@@ -20,6 +27,9 @@ const getTask = asyncWrapper(async (req, res, next) => {
 
   res.status(200).json({ task })
 })
+
+// method to delete a single task
+
 const deleteTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
   const task = await Task.findOneAndDelete({ _id: taskID })
@@ -28,6 +38,9 @@ const deleteTask = asyncWrapper(async (req, res, next) => {
   }
   res.status(200).json({ task })
 })
+
+// method to update a given task
+
 const updateTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
 
@@ -42,6 +55,8 @@ const updateTask = asyncWrapper(async (req, res, next) => {
 
   res.status(200).json({ task })
 })
+
+// export the methods created
 
 module.exports = {
   getAllTasks,
