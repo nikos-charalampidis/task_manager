@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+// create Schema for the mongoDb
+
 const TaskSchema = new mongoose.Schema({
   name: {
     type: String,
