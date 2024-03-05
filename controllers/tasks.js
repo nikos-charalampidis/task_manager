@@ -3,6 +3,8 @@ const asyncWrapper = require('../middleware/async')
 const { createCustomError } = require('../errors/custom-error')
 
 // method to return all tasks
+//new comment
+
 
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({})
@@ -10,6 +12,7 @@ const getAllTasks = asyncWrapper(async (req, res) => {
 })
 
 // method to create a new task
+//new comment
 
 const createTask = asyncWrapper(async (req, res) => {
   const task = await Task.create(req.body)
@@ -17,6 +20,7 @@ const createTask = asyncWrapper(async (req, res) => {
 })
 
 // method to return a single task
+//new comment
 
 const getTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
@@ -29,6 +33,7 @@ const getTask = asyncWrapper(async (req, res, next) => {
 })
 
 // method to delete a single task
+//new comment
 
 const deleteTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
@@ -40,6 +45,7 @@ const deleteTask = asyncWrapper(async (req, res, next) => {
 })
 
 // method to update a given task
+//new comment
 
 const updateTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params
@@ -57,6 +63,7 @@ const updateTask = asyncWrapper(async (req, res, next) => {
 })
 
 // export the methods created
+//new comment
 
 module.exports = {
   getAllTasks,
