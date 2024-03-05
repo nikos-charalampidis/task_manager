@@ -62,6 +62,12 @@ const updateTask = asyncWrapper(async (req, res, next) => {
   res.status(200).json({ task })
 })
 
+//add a new function as an example
+const printResults = () => {
+  console.log("I am an example.");
+  console.log("I don't do anything.")
+}
+
 // export the methods created
 //new comment
 
@@ -71,4 +77,5 @@ module.exports = {
   getTask,
   updateTask,
   deleteTask,
+  printResults
 }
